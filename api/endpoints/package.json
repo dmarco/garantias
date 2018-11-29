@@ -1,0 +1,35 @@
+{
+  "name": "api-rest",
+  "version": "1.0.0",
+  "description": "Proyecto de API RESTful con Node.js y Express",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Carlos Azaustre (http://carlosazaustre.es)",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.4",
+    "cron": "^1.3.0",
+    "crypto": "^0.0.3",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "fs": "0.0.1-security",
+    "jwt-simple": "^0.5.1",
+    "mercadopago": "^1.0.17",
+    "mime-types": "^2.1.18",
+    "moment": "^2.16.0",
+    "mongoose": "^4.6.0",
+    "multer": "^1.3.0",
+    "nodemailer": "^4.6.7",
+    "nodemailer-direct-transport": "^3.3.2",
+    "nodemailer-express-handlebars": "^3.0.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^1.10.2"
+  }
+}

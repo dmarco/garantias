@@ -1,0 +1,20 @@
+FROM avatarla/docker-alpine-phpfpm-wpcli:latest
+
+ARG SRC_DIR
+ARG DOCKER_IMAGE_CONTEXT
+
+COPY --from=composer:1.5 /usr/bin/composer /usr/bin/composer
+
+RUN rm -rf /var/www/html/logs/* \
+    && chown -R www-data:www-data /var/www/html
+
+COPY $DOCKER_IMAGE_CONTEXT/php.ini /usr/local/etc/php/conf.d/php.ini
+
+COPY $DOCKER_IMAGE_CONTEXT/docker-entrypoint-development.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
+
+EXPOSE 9000
+CMD ["php-fpm"]
+
+

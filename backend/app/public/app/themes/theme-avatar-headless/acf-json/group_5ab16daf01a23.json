@@ -1,0 +1,226 @@
+{
+    "key": "group_5ab16daf01a23",
+    "title": "Bloques de contenido",
+    "fields": [
+        {
+            "key": "field_5ab16d740b015",
+            "label": "Bloques Genericos",
+            "name": "bloques_genericos",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "show_in_rest": 1,
+            "layouts": {
+                "5aad4cca883b3": {
+                    "key": "5aad4cca883b3",
+                    "name": "highlight_section",
+                    "label": "Highlight Section",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5ab16d740b01c",
+                            "label": "Título",
+                            "name": "titulo",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_rest": 0,
+                            "default_value": "Highlight Section",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5ab16d740b01d",
+                            "label": "Vínculo",
+                            "name": "vinculo_del_highlight",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_rest": 1,
+                            "default_value": "\/contacto",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5ab16d740b01e",
+                            "label": "Call to action",
+                            "name": "call_to_action",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_rest": 1,
+                            "default_value": "Descubre más",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5ab16d740b01f",
+                            "label": "Descripción",
+                            "name": "descripcion",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_rest": 1,
+                            "default_value": "Soy un módulo configurable",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5ac4e32fec9c5",
+                            "label": "Margen superior",
+                            "name": "mt",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_rest": 1,
+                            "choices": {
+                                "mt0": "0",
+                                "mt1": "1",
+                                "mt2": "2",
+                                "mt3": "3",
+                                "mt4": "4"
+                            },
+                            "default_value": [
+                                "mt0"
+                            ],
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "return_format": "value",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_5ac4e343ec9c6",
+                            "label": "Margen inferior",
+                            "name": "mb",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_rest": 1,
+                            "choices": {
+                                "mb0": "0",
+                                "mb1": "1",
+                                "mb2": "2",
+                                "mb3": "3",
+                                "mb4": "4"
+                            },
+                            "default_value": [
+                                "mb0"
+                            ],
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "return_format": "value",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_5ab16d740b020",
+                            "label": "Color",
+                            "name": "color_de_highlight",
+                            "type": "color_picker",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "33.33",
+                                "class": "",
+                                "id": ""
+                            },
+                            "show_in_rest": 1,
+                            "default_value": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "button_label": "Add Row",
+            "min": "",
+            "max": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1523556829
+}

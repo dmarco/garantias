@@ -1,0 +1,37 @@
+[  
+   {  
+      "name":"Rechazada",
+      "code":"0",
+      "prop":"error"
+   },
+   {  
+      "name":"Datos / documentos pendientes",
+      "code":"1",
+      "prop":"orange"
+   },
+   {  
+      "name":"Datos a analizar",
+      "code":"2",
+      "prop":"orange"
+   },
+   {  
+      "name":"Aprobado - Pago Pendiente",
+      "code":"3",
+      "prop":"success"
+   },
+   {  
+      "name":"Trámite concluido - Pagado",
+      "code":"4",
+      "prop":"success"
+   },
+   {  
+      "name":"Garantía por expirar",
+      "code":"5",
+      "prop":"orange"
+   },
+   {  
+      "name":"Poliza emitida",
+      "code":"6",
+      "prop":"success"
+   }
+]

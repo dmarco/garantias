@@ -1,0 +1,7 @@
+docker/data
+docker/data/**
+docker/data/*
+.env
+env/local
+backend/app/public/app/object-cache.php
+builds_nuxtgen

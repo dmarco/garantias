@@ -1,0 +1,59 @@
+/vendor/
+/public/wp/
+dist
+bower_components
+node_modules
+npm-debug.log
+vendor
+
+.idea/**
+/public/app/cache/*
+!/public/app/cache/.gitkeep
+!/public/app/cache/index.php
+/public/app/w3tc-config/*
+!/public/app/w3tc-config/.gitkeep
+!/public/app/w3tc-config/index.php
+#/public/app/advanced-cache.php
+
+public/app/themes/theme-avatar/assets.php
+
+# Application
+/public/app/plugins/*
+!public/app/plugins/.gitkeep
+!public/app/plugins/index.php
+/public/app/mu-plugins/*
+!public/app/mu-plugins/.gitkeep
+!public/app/mu-plugins/index.php
+/public/app/uploads/*
+!public/app/uploads/.gitkeep
+!public/app/plugins/debug-bar/*
+
+#Avatar Plugins
+!/public/app/plugins/avatar-*
+
+
+
+# WordPress
+public/wp
+!public/.htaccess
+!public/wp-config.php
+
+# WP-CLI
+db-sync
+sql-dump-*.sql
+
+# Dotenv
+.env
+#.env.*
+#!.env.example
+
+# Vendor (e.g. Composer)
+vendor/*
+!vendor/.gitkeep
+
+# Node Package Manager
+node_modules
+
+# Vagrant
+bin
+.vagrant

@@ -1,0 +1,72 @@
+{
+  "name": "nuxtjs-wp-starter",
+  "version": "1.0.0",
+  "description": "NuxtJS Starter for Wordpress Api",
+  "author": "Pitr Mintt",
+  "private": true,
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.1",
+    "@nuxtjs/google-analytics": "^2.0.2",
+    "@nuxtjs/google-tag-manager": "^1.1.0",
+    "@nuxtjs/vuetify": "0.4.1",
+    "aws-amplify": "^0.3.3",
+    "cookieparser": "^0.1.0",
+    "element-ui": "^2.4.1",
+    "google-maps-api-loader": "^1.1.1",
+    "js-cookie": "^2.2.0",
+    "loader-utils": "",
+    "nuxt": "1.4.0",
+    "vee-validate": "^2.0.6",
+    "vue-data-tables": "^3.2.0",
+    "vue-infinite-loading": "^2.2.3",
+    "vue-router": "https://github.com/homerjam/vue-router#dist",
+    "vue-scrollto": "^2.11.0",
+    "vue2-filters": "^0.3.0"
+  },
+  "config": {
+    "nuxt": {
+      "host": "localhost",
+      "port": "3002"
+    }
+  },
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "analyze": "nuxt build --analyze",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint",
+    "generate-icons": "vsvg -s ./assets/svg -t ./assets/svg/compiled"
+  },
+  "devDependencies": {
+    "@nuxtjs/dotenv": "^1.1.0",
+    "axios": "^0.18.0",
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.15.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-loader": "^1.6.1",
+    "eslint-plugin-html": "^4.0.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    "lg-fullscreen.js": "^1.0.0",
+    "lg-pager.js": "^1.0.0",
+    "lg-thumbnail.js": "^1.0.0",
+    "lg-zoom.js": "^1.0.1",
+    "lightgallery.js": "^1.0.1",
+    "lodash": "^4.17.4",
+    "moment": "^2.20.1",
+    "node-sass": "^4.7.2",
+    "node-vibrant": "^3.0.0",
+    "normalize.css": "^7.0.0",
+    "sanitize-html": "^1.16.3",
+    "sass-loader": "^6.0.6",
+    "vue-lazyload": "^1.1.4",
+    "webfontloader": "^1.6.28",
+    "webpack": "^3.10.0"
+  }
+}

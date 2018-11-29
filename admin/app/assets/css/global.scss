@@ -1,0 +1,97 @@
+  .page-enter-active {
+    transition: all .5s;
+  }
+
+  .page-enter,
+  .page-leave-active {
+    opacity: 0;
+  }
+
+  small {
+    a {
+      clear: both;
+      margin: 0 auto;
+      display: inline-block;
+    }
+  }
+
+
+  p {
+    margin: 0;
+  }
+
+  b,
+  strong {
+    font-weight: bolder;
+    font-weight: 800;
+  }
+
+  *:focus {
+    outline: none;
+  }
+
+  a:hover {
+    cursor: pointer;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+
+  .buttons {
+    border: none;
+    z-index: 99;
+    background: $tertiary;
+    color: white;
+    text-transform: uppercase;
+    height: 40px;
+    text-align: center;
+    font-weight: normal;
+    border-radius: 2px;
+    padding: 10px 20px;
+    height: auto;
+    line-height: 1.2rem;
+    display: inline-block;
+    transition: background .3s ease-in-out, color .3s ease-in-out;
+    &:hover {
+      color: white;
+      background: $tertiary;
+      cursor: pointer;
+    }
+  }
+
+  .btn--large .btn__content {
+    @media (max-width: 540px) {
+      padding: 0 11px !important;
+    }
+  }
+
+  .input-group--hide-details .input-group__details {
+    min-height: 0px;
+    padding: 0;
+  }
+
+  .theme--light .stepper .stepper__step--editable:hover,
+  .application .theme--light.stepper .stepper__step--editable:hover {
+    background: #fafafa;
+  }
+
+  .bottom-nav {
+    .btn:not(.btn--depressed):active .btn__content,
+    .btn:not(.btn--depressed):focus .btn__content {
+      position: absolute;
+      top: 2px;
+    }
+  }
+
+  .input-group:not(.input-group--error) label,
+  .application .input-group:not(.input-group--error) label {
+    color: rgba(0, 0, 0, .8);
+    font-weight: 400;
+  }
+
+
+  .input-group label {
+    font-size: 14px !important;
+  }

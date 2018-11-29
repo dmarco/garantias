@@ -1,0 +1,141 @@
+version: '3'
+services:
+    nginx1: &nginx
+        restart: always
+        image: nginx:1.13-alpine
+        depends_on:
+          - mysql
+          - wordpress1
+        volumes:
+          - ./nginx.template:/etc/nginx/conf.d/nginx.template
+          - ./docker/data/logs/nginx/:/var/log/nginx/
+          - ./backend/app/public:/var/www/html/public
+        networks:
+          - reverse-proxy
+          - backnet
+        env_file: ./env/prod/nginx1.env
+        command: /bin/sh -c "envsubst '$${NODEJS_API},$${NODEJS_API_PORT},$${NODEJS},$${NODEJS_PORT},$${NODEJS_SERVER_NAME},$${NODEJSADMIN},$${NODEJSADMIN_PORT},$${NODEJSADMIN_SERVER_NAME},$${PHPFPM_SERVER_NAME},$${PHPFPM},$${PHPFPM_PORT}' < /etc/nginx/conf.d/nginx.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+    wordpress1: &wordpress
+        image: prod_${DOCKER_IMAGE_PREFIX}wordpress:${TAG}
+        build:
+            context: .
+            dockerfile: ./docker/phpfpm/Dockerfile
+            args:
+              SRC_DIR: ./backend/app
+              DOCKER_IMAGE_CONTEXT: docker/phpfpm
+        restart: always
+        command: 
+          - /usr/local/bin/docker-entrypoint.sh
+        networks:
+          - backnet
+        depends_on:
+          - mysql
+        volumes: 
+          - ./backend/app:/var/www/html
+        env_file: ./env/prod/wordpress1.env
+    nodejs1: &nodejs
+      image: prod_${DOCKER_IMAGE_PREFIX}nodejs:${TAG}
+      build:
+        context: .
+        dockerfile: ./docker/nodejs/Dockerfile
+        args:
+          SRC_DIR: ./frontend/app
+          API_ENDPOINT: ${API_ENDPOINT1}
+      env_file: ./env/prod/front.env
+      command: npm run dev
+      volumes:
+        - ./frontend/app:/usr/app
+        - /usr/app/node_modules
+      ports:
+        - "3000"
+      networks:
+        - backnet
+    nodejsadmin:
+      image: prod_${DOCKER_IMAGE_PREFIX}nodejsadmin:${TAG}
+      build:
+        context: .
+        dockerfile: ./docker/nodejsadmin/Dockerfile
+        args:
+          SRC_DIR: ./admin/app
+          API_ENDPOINT: ${API_ENDPOINT1}
+      env_file: ./env/prod/admin.env
+      command: npm run dev
+      volumes:
+        - ./admin/app:/usr/app
+        - /usr/app/node_modules
+      ports:
+        - "3002"
+      networks:
+        - backnet
+    nodejsapi: &nodejsapi
+      build:
+        context: .
+        dockerfile: ./docker/nodejsapi/Dockerfile
+        args:
+         SRC_DIR: ./api/endpoints
+      image: prod_${DOCKER_IMAGE_PREFIX}nodejsapi:${TAG}
+      restart: always
+      command: nodemon index.js
+      volumes:
+        - ./api/endpoints:/usr/app
+        - /usr/app/node_modules
+      ports:
+        - "3001"
+      env_file: ./env/prod/api.env
+      networks:
+        - backnet
+      depends_on:
+        - mysql
+      environment:
+        MYSQL_USER: ${MYSQL_USER}
+        MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+        MYSQL_DATABASE: ${MYSQL_DATABASE}
+    redis:
+      image: redis:alpine
+      restart: always
+      networks:
+        - backnet
+    mysql:
+      image: prod_${DOCKER_IMAGE_PREFIX}mysql:${TAG}
+      build:
+        context: .
+        dockerfile: ./docker/mysql/Dockerfile
+        args:
+          - MYSQL_VERSION=5.7
+      restart: always
+      environment:
+        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+        MYSQL_USER: ${MYSQL_USER}
+        MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      command: --character-set-server=${DB_CHARSET} --collation-server=${DB_COLLATE}
+      volumes:
+        - ./docker/data/db-data:/var/lib/mysql
+        - ./docker/mysql/prod/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      networks:
+        - backnet
+    phpmyadmin:
+      image: phpmyadmin/phpmyadmin:4.7.7-1
+      networks:
+        - backnet
+      environment:
+        PMA_PORT: 3306
+        PMA_HOST: mysql
+        PMA_ABSOLUTE_URI: ${PMA_ABSOLUTE_URI}
+    mongodb:
+      image: mongo:latest
+      container_name: "mongodb_container"
+      env_file: ./env/prod/mongodb.env
+      volumes:
+        - ./docker/data/mongodb:/data/db
+      ports:
+          - 27017:27017
+      command: mongod --logpath=/dev/null # --quiet
+      networks:
+        - backnet
+networks:
+  reverse-proxy:
+    external:
+      name: reverse-proxy
+  backnet:
+    driver: bridge
+
